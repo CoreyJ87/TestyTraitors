@@ -194,13 +194,13 @@ box-shadow:0 1px 0 rgba(255,255,255,0.5) inset,0 -1px 0 rgba(0,0,0,0.02);}
 .jqueryslidemenu li a{display:block;text-decoration:none;height:36px;line-height:36px;overflow:hidden;padding:0 16px;height:60px;line-height:60px;}
 .jqueryslidemenu>ul>.current_page_parent,.jqueryslidemenu>ul>.current_page_ancestor,.jqueryslidemenu>ul>.current_page_item,
 .jqueryslidemenu>ul>li>a:hover,.jqueryslidemenu>ul>li:hover>a{background:url(images/menu_hover.png) no-repeat center -4px;}
-.jqueryslidemenu ul ul{position:absolute;left:0px;display:block;visibility:hidden;padding-top:4px;top:30px;padding-bottom:4px;border-top:1px solid #fff;}
-.jqueryslidemenu ul ul ul{margin-top:-5px;z-index:2001;}
+.jqueryslidemenu ul ul{background:#80a9a3 !important; position:absolute;left:0px;display:block;visibility:hidden;padding-top:4px;top:30px;padding-bottom:4px;border-top:1px solid #fff;}
+.jqueryslidemenu ul ul ul{background:#80a9a3 !important;margin-top:-5px;z-index:2001;}
 .jqueryslidemenu li li{display:list-item;float:none;}
-.jqueryslidemenu li li a{width:200px;padding:6px 16px;margin:0;height:100%;line-height:20px;color:#aaa;text-shadow:0 1px 1px #fff;}
-.jqueryslidemenu li li a:hover{margin:0 4px;padding:6px 10px;background:url(images/opacity_strip.png) repeat-x 0 4%;color:#888;padding-left:12px;}
+.jqueryslidemenu li li a{width:200px;padding:6px 16px;margin:0;height:100%;line-height:20px;color:#002e3b}
+.jqueryslidemenu li li a:hover{margin:0 4px;padding:6px 10px;text-decoration:underline;color:#002e3b;padding-left:12px;}
 .jqueryslidemenu small{display:none;}
-.ie .jqueryslidemenu ul ul{border-left:1px solid transparent;border-right:1px solid transparent;}
+.ie .jqueryslidemenu ul ul{background:#80a9a3 !important;border-left:1px solid transparent;border-right:1px solid transparent;}
 
 /* Fancy Search
 -------------------------------------------------------------- */
@@ -725,4 +725,108 @@ border-bottom:2px solid #000;
 }
 .entry a {
     color: #002e3b;
+}
+
+
+/* jssor slider thumbnail navigator skin 11 css */
+/*
+.jssort11 .p            (normal)
+.jssort11 .p:hover      (normal mouseover)
+.jssort11 .pav          (active)
+.jssort11 .pav:hover    (active mouseover)
+.jssort11 .pdn          (mousedown)
+*/
+.jssort11 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.jssort11 .i, .jssort11 .pav:hover .i {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    WIDTH: 60px;
+    HEIGHT: 30px;
+    border: white 1px dashed;
+}
+
+* html .jssort11 .i {
+    WIDTH /**/: 62px;
+    HEIGHT /**/: 32px;
+}
+
+.jssort11 .pav .i {
+    border: white 1px solid;
+}
+
+.jssort11 .t, .jssort11 .pav:hover .t {
+    position: absolute;
+    top: 3px;
+    left: 68px;
+    width: 129px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    color: #fc9835;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.jssort11 .pav .t, .jssort11 .phv .t, .jssort11 .p:hover .t {
+    color: #fff;
+}
+
+.jssort11 .c, .jssort11 .pav:hover .c {
+    position: absolute;
+    top: 38px;
+    left: 3px;
+    width: 197px;
+    height: 31px;
+    line-height: 31px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+    overflow: hidden;
+}
+
+.jssort11 .pav .c, .jssort11 .phv .c, .jssort11 .p:hover .c {
+    color: #fc9835;
+}
+
+.jssort11 .t, .jssort11 .c {
+    transition: color 2s;
+    -moz-transition: color 2s;
+    -webkit-transition: color 2s;
+    -o-transition: color 2s;
+}
+
+.jssort11 .p:hover .t, .jssort11 .phv .t, .jssort11 .pav:hover .t, .jssort11 .p:hover .c, .jssort11 .phv .c, .jssort11 .pav:hover .c {
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+}
+
+.jssort11 .p {
+    background: #181818;
+}
+
+.jssort11 .pav, .jssort11 .pdn {
+    background: #462300;
+}
+
+.jssort11 .p:hover, .jssort11 .phv, .jssort11 .pav:hover {
+    background: #333;
+}
+
+#slider1_container {
+    position: relative; top: 0px; left: 0px; width: 640px;
+    height: 390px;
+}
+
+#slides_container {
+    cursor: move; position: absolute; left: 0px; top: 0px; width: 480px; height: 300px;
+    overflow: hidden;
+}
+.single_player {
+    position: relative; top: 0px; left: 0px; width: 640px; height: 390px; overflow: hidden;
 }

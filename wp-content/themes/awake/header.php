@@ -25,7 +25,7 @@
     <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
     <?php mysite_head(); ?>
     <?php wp_head(); ?>
-    <script src="/wp-content/themes/awake/lib/scripts/jquery-2.1.1.min.js"></script>
+   <!-- <script src="/wp-content/themes/awake/lib/scripts/jquery-2.1.1.min.js"></script>-->
     <script src="/wp-content/themes/awake/lib/scripts/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="/wp-content/themes/awake/lib/scripts/jquery-ui.min.css">
 </head>
