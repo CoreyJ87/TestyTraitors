@@ -46,12 +46,12 @@ get_header(); ?>
                             </div>
                         </div>
                         <div u="thumb">
-                            <img class="i" src="//i.ytimg.com/vi/_-lO_1QCuoI/mqdefault.jpg" class="user_content preview_image">"/>
+                            <img class="i" src="//i.ytimg.com/vi/%s/mqdefault.jpg" class="user_content preview_image">"/>
                             <div class="t">%s</div>
                             <div class="c">The desciption</div>
                         </div>
                     </div>
-                ', $value[1], $value[0]);
+                ', $value[1],$value[1], $value[0]);
                         }
                         ?>
                     </div>

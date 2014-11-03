@@ -25,7 +25,8 @@ jQuery(document).ready(function() {
 			Cufon.refresh();
 		});
 	}
-	
+
+
 	/* 
 	 * Hover fade
 	 */
@@ -639,9 +640,9 @@ buildmenu:function(menuid, arrowsvar){
 					})
 				}
 			) //end hover
-			$curobj.click(function(){
+		/*	$curobj.click(function(){
 				$(this).children("ul:eq(0)").hide()
-			})
+			})*/
 		}) //end $headers.each()
 		$mainmenu.find("ul").css({display:'none', visibility:'visible'})
 	}) //end document.ready

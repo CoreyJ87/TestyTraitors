@@ -830,3 +830,9 @@ border-bottom:2px solid #000;
 .single_player {
     position: relative; top: 0px; left: 0px; width: 640px; height: 390px; overflow: hidden;
 }
+.left{
+    display:inline-block;
+}
+.break {
+    clear:both;
+}
