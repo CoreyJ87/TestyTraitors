@@ -32,12 +32,12 @@ get_header(); ?>
                 <!-- use jssor.slider.player.ytiframe.min.js for release -->
                 <script type="text/javascript" src="../js/jssor.player.ytiframe.js"></script>
                 <script type="text/javascript" src="../js/slider_custom.js"></script>
-
-                <div id="slider1_container">
-                    <div u="slides" id="slides_container">
-                        <?php
-                        foreach ($option as $single => $value) {
-                            echo sprintf('<div>
+                <div id="main_slider_container">
+                    <div id="slider1_container">
+                        <div u="slides" id="slides_container">
+                            <?php
+                            foreach ($option as $single => $value) {
+                                echo sprintf('<div>
                         <div u="player" style="width: 480px; height: 300px;" class="single_player">
                             <iframe pHandler="ytiframe" pHideControls="0" width="480" height="300" style="z-index: 0;"
                                     url="http://www.youtube.com/embed/%s?enablejsapi=1&version=3&playerapiid=ytplayer&fs=1&wmode=transparent"
@@ -51,20 +51,21 @@ get_header(); ?>
                             <div class="c">The desciption</div>
                         </div>
                     </div>
-                ', $value[1],$value[1], $value[0]);
-                        }
-                        ?>
-                    </div>
+                ', $value[1], $value[1], $value[0]);
+                            }
+                            ?>
+                        </div>
 
 
-                    <div u="thumbnavigator" class="jssort11"
-                         style="position: absolute; width: 200px; height: 200px; left:480px; top:-6px;">
-                        <!-- Thumbnail Item Skin Begin -->
-                        <div u="slides" style="cursor: move;">
-                            <div u="prototype" class="p"
-                                 style="position: absolute; width: 200px; height: 69px; top: 0; left: 0;">
-                                <thumbnailtemplate
-                                    style=" width: 100%; height: 100%; border: none;position:absolute; top: 0; left: 0;"></thumbnailtemplate>
+                        <div u="thumbnavigator" class="jssort11"
+                             style="position: absolute; width: 200px; height: 200px; left:480px; top:7px;">
+                            <!-- Thumbnail Item Skin Begin -->
+                            <div u="slides" style="cursor: pointer;">
+                                <div u="prototype" class="p"
+                                     style="position: absolute; width: 200px; height: 69px; top: 0; left: 0;">
+                                    <thumbnailtemplate
+                                        style=" width: 100%; height: 100%; border: none;position:absolute; top: 0; left: 0;"></thumbnailtemplate>
+                                </div>
                             </div>
                         </div>
                     </div>

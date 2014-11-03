@@ -80,15 +80,15 @@ function init_featured_admin_option_page()
                     <?php
                     echo "<input type='hidden' name='values_changed' value='Y'><input type='hidden' name='element-max-id' id='element-max-id' value=" . $max_id . ">";
                     for ($x = 1; $x <= $max_id; $x++) {
-                        echo "<div class='video_option_container'>";
-                        echo sprintf('<p><label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User"></p>
+                        echo "<div class='video_option_container' id='container_".$x."'>";
+                        echo sprintf('<label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User">
 ', $x, $x);
-                        echo sprintf('<p><label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID"></p></div>
+                        echo sprintf('<label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID"><a class="remove_button" id="remove_button_'.$x.'">Remove</a><br></div>
 ', $x, $x);
                     }
                     ?>
-                    <input type="button" id="add-new-video" value="Add new Video"/>
                 </div>
+                <input type="button" id="add-new-video" value="Add new Video"/>
             </div>
             <span
                 class="submit-btn"><?php echo get_submit_button('Save Settings', 'button-primary', 'submit', '', ''); ?></span>

@@ -746,7 +746,7 @@ border-bottom:2px solid #000;
     left: 3px;
     WIDTH: 60px;
     HEIGHT: 30px;
-    border: white 1px dashed;
+    /*border: white 1px dashed;*/
 }
 
 * html .jssort11 .i {
@@ -766,13 +766,13 @@ border-bottom:2px solid #000;
     height: 32px;
     line-height: 32px;
     text-align: center;
-    color: #fc9835;
+    color: #FFF;
     font-size: 13px;
     font-weight: 700;
 }
 
 .jssort11 .pav .t, .jssort11 .phv .t, .jssort11 .p:hover .t {
-    color: #fff;
+    color: #002e3b;
 }
 
 .jssort11 .c, .jssort11 .pav:hover .c {
@@ -782,14 +782,14 @@ border-bottom:2px solid #000;
     width: 197px;
     height: 31px;
     line-height: 31px;
-    color: #fff;
+    color: #FFF;
     font-size: 11px;
     font-weight: 400;
     overflow: hidden;
 }
 
 .jssort11 .pav .c, .jssort11 .phv .c, .jssort11 .p:hover .c {
-    color: #fc9835;
+    color: #FFF;
 }
 
 .jssort11 .t, .jssort11 .c {
@@ -811,20 +811,36 @@ border-bottom:2px solid #000;
 }
 
 .jssort11 .pav, .jssort11 .pdn {
-    background: #462300;
+    background: #80a9a3;
 }
 
 .jssort11 .p:hover, .jssort11 .phv, .jssort11 .pav:hover {
     background: #333;
 }
 
+#main_slider_container {
+    width: 680px;
+    height: 290px;
+    background: #002e3b;
+    padding: 10px;
+    padding-bottom: 20px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 1px 5px 1px #000000;
+    box-shadow: 0 1px 5px 1px #000000;
+    margin-bottom: 15px;
+}
+
 #slider1_container {
-    position: relative; top: 0px; left: 0px; width: 640px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 640px;
     height: 390px;
 }
 
 #slides_container {
-    cursor: move; position: absolute; left: 0px; top: 0px; width: 480px; height: 300px;
+    cursor: pointer; position: absolute; left: 0px; top: 0px; width: 480px; height: 300px;
     overflow: hidden;
 }
 .single_player {
