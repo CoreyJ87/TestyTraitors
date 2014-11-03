@@ -39,8 +39,6 @@ function init_featured_admin_option_page()
     else
         $max_id = get_option('max_id');
 
-    echo "post:" . $_POST['element-max-id'] . "get option:" . get_option('max_id');
-
     if (isset($_POST["values_changed"]) && $_POST["values_changed"] == 'Y') {
         $front_page_elements = array();
 
@@ -63,24 +61,20 @@ function init_featured_admin_option_page()
         update_option("synfeat_featured", $front_page_elements);
     }
     $options = get_option('synfeat_featured');
-    var_dump($max_id);
-    var_dump($options);
     ?>
     <div style="width: 80%; padding: 10px; margin: 10px;">
         <h1>Featured Slider-Admin Settings</h1>
         <!-- Start Options Form -->
         <form action="" method="post" id="pwa-settings-form-admin">
-
-            <div id="pwa-tab-menu"><a id="pwa-general" class="pwa-tab-links active">General</a></div>
-
+           <!-- <div id="pwa-tab-menu"><a id="pwa-general" class="pwa-tab-links active">General</a></div>-->
             <div class="pwa-setting">
                 <!-- General Setting -->
                 <div class="first pwa-tab" id="div-pwa-general">
-                    <h2>General Settings</h2>
+                    <h2>Current Featured Videos:</h2>
                     <?php
                     echo "<input type='hidden' name='values_changed' value='Y'><input type='hidden' name='element-max-id' id='element-max-id' value=" . $max_id . ">";
                     for ($x = 1; $x <= $max_id; $x++) {
-                        echo "<div class='video_option_container' id='container_".$x."'>";
+                        echo "<br><div class='video_option_container' id='container_".$x."'>";
                         echo sprintf('<label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User">
 ', $x, $x);
                         echo sprintf('<label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID"><a class="remove_button" id="remove_button_'.$x.'">Remove</a><br></div>
@@ -88,7 +82,7 @@ function init_featured_admin_option_page()
                     }
                     ?>
                 </div>
-                <input type="button" id="add-new-video" value="Add new Video"/>
+              <br><br>  <input type="button" id="add-new-video" value="Add new Video"/>
             </div>
             <span
                 class="submit-btn"><?php echo get_submit_button('Save Settings', 'button-primary', 'submit', '', ''); ?></span>
