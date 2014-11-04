@@ -18,5 +18,8 @@ Mysitemyway::init(array(
 	'theme_name' => $theme_data['Name'],
 	'theme_version' => $theme_data['Version']
 ));
-
+function check_for_home() {
+    global $is_this_home;
+    $is_this_home = true;
+}
 ?>
