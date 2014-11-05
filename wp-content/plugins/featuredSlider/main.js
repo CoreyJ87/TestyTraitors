@@ -28,7 +28,7 @@ jQuery(document).ready(function () {
 
 function fixNumbers(){
     var count=1;
-    jQuery('#div-pwa-general').children('div').each(function(){
+    jQuery('#form_input_fields').children('div').each(function(){
         jQuery(this).children('p').children('span').text(count);
         jQuery(this).attr('id','container_'+count);
         jQuery(this).children('input[placeholder="User"]').attr('id','synfeat_user_'+count)

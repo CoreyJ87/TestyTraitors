@@ -51,8 +51,12 @@
     <?php mysite_after_header(); ?>
     <div id="content">
         <div id="content_inner">
-            <?php  if(is_front_page()){ createSlider(); }?>
-            <?php mysite_before_main();?>
+            <?php
+            if(is_front_page())
+                createSlider();
+
+            mysite_before_main();
+            ?>
             <div id="slider_border"></div>
             <div id="main">
                 <div id="main_inner">
