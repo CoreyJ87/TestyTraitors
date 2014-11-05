@@ -23,7 +23,7 @@ function init_featured_admin_option_page()
     if (isset($_POST["values_changed"]) && $_POST["values_changed"] == 'Y') {
         $front_page_elements = array();
 
-        for ($i = $max_id; $i >= 1; $i--) {
+        for ($i = 1; $i <= $max_id; $i++) {
             $field_name = "synfeat_user_" . $i;
             $field_name2 = "synfeat_vidID_" . $i;
             $field_name3 = "synfeat_desc_" . $i;
@@ -43,15 +43,11 @@ function init_featured_admin_option_page()
     }
     $options = get_option('synfeat_featured');
     ?>
-    <div style="width: 80%; padding: 10px; margin: 10px;">
+    <div style="width: 95%; padding: 10px; margin: 10px;">
         <h1>Homepage Featured Slider Settings</h1>
 
         <div>Below you can enter the clan members name, youtube video id, and description.<br>
-            The sort order is currently setup where the bottom of this list,is the first video in the slider on the
-            front page.<br>
-            That way when a new video is added. It is the first video to appear on the slider. This will be updated
-            later to be sortable.
-            Just the same way the menus are sortable under appearance->menus.<br>
+            Sort order is exactly as you see it here. All items are sortable. #1 here is number one in the slider, and on down.<br>
             Also will update this to pull the image from here instead of the beginning of the video.
             Although it can be set on the youtube side by setting the preview image to a different image than the
             default
@@ -64,14 +60,16 @@ function init_featured_admin_option_page()
 
             <div id="form_input_fields">
                 <?php
+                $video_count=1;
                 for ($x = 1; $x <= $max_id; $x++) {
                     echo sprintf('<div class="video_option_container" id="container_%s">
-                    <p>Video #: <span class="video_number">%s</span> |
+                    Video #: <span class="video_number">%s</span> |
                     <label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User">
                     <label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID">
                     <label>Description:</label><input style="width:350px;" type="text" id="synfeat_desc_%s" name="synfeat_desc_%s" value="' . esc_attr($options[$x][2]) . '" placeholder="Description">
-                    <a class="button button-primary remove_button" id="remove_button_' . $x . '">Remove</a></p></div>
-', $x, $x, $x, $x, $x, $x, $x, $x);
+                    <a class="button button-primary remove_button" id="remove_button_' . $x . '">Remove</a></div>
+', $x,$video_count, $x, $x, $x, $x, $x, $x);
+                    $video_count++;
                 }
                 ?>
             </div>
@@ -91,8 +89,12 @@ function init_synfeat_admin_scripts()
 {
     wp_register_style('synfeat_admin_style', plugins_url('featuredSliderAdmin.css', __FILE__));
     wp_enqueue_style('synfeat_admin_style');
-    wp_enqueue_script('mainFeatured', path_join(WP_PLUGIN_URL, basename(dirname(__FILE__)) . '/main.js', array(), '1.0.0', true));
-    //wp_enqueue_script('jQueryUI', '/dev/wp-content/themes/awake/scripts/main.js', array(), '1.0.0', true);
+
+    wp_register_style('jquery-ui-css', plugins_url('jquery-ui.min.css', __FILE__));
+    wp_enqueue_style('jquery-ui-css');
+
+    wp_enqueue_script('mainFeatured', path_join(WP_PLUGIN_URL, basename(dirname(__FILE__)) . '/main.js'), array(), '1.0.0', true);
+    wp_enqueue_script('jQueryUI', path_join(WP_PLUGIN_URL, basename(dirname(__FILE__)) . '/jquery-ui.min.js'), array(), '1.0.0', true);
 }
 function init_synfeat_admin_menu()
 {
