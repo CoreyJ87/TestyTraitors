@@ -12,7 +12,7 @@
 add_action('admin_menu', 'init_synfeat_admin_menu');
 function init_synfeat_admin_menu()
 {
-    add_options_page('Featured Slider', 'Featured videos of the week', 'manage_options', 'featured-settings', 'init_featured_admin_option_page');
+    add_theme_page('Featured Slider', 'Homepage Video Slider', 'edit_theme_options', 'featured-settings', 'init_featured_admin_option_page');
 }
 
 
@@ -21,7 +21,7 @@ add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'synfeat_action_l
 
 function synfeat_action_links($links)
 {
-    $links[] = '<a href="' . get_admin_url(null, 'options-general.php?page=featured-settings') . '">Settings</a>';
+    $links[] = '<a href="' . get_admin_url(null, 'themes.php?page=featured-settings') . '">Settings</a>';
     return $links;
 }
 
@@ -29,7 +29,7 @@ function synfeat_action_links($links)
 function init_featured_admin_option_page()
 {
     // Check that the user is allowed to update options
-    if (!current_user_can('manage_options')) {
+    if (!current_user_can('edit_theme_options')) {
         wp_die('You do not have sufficient permissions to access this page.');
     }
     if ($_POST['element-max-id'] == "" && get_option('max_id') == "")
@@ -46,15 +46,19 @@ function init_featured_admin_option_page()
         echo '<script>console.log(' . json_encode($_POST) . ')</script>';
 
 
-        for ($i = 1; $i <= $max_id; $i++) {
+        for ($i = $max_id; $i >= 1; $i--) {
             $field_name = "synfeat_user_" . $i;
             $field_name2 = "synfeat_vidID_" . $i;
+            $field_name3 = "synfeat_desc_" . $i;
 
             if (isset($_POST[$field_name])) {
                 $front_page_elements[$i][0] = esc_attr($_POST[$field_name]);
             }
             if (isset($_POST[$field_name2])) {
                 $front_page_elements[$i][1] = esc_attr($_POST[$field_name2]);
+            }
+            if (isset($_POST[$field_name3])) {
+                $front_page_elements[$i][2] = esc_attr($_POST[$field_name3]);
             }
         }
         update_option("max_id", $max_id);
@@ -63,26 +67,36 @@ function init_featured_admin_option_page()
     $options = get_option('synfeat_featured');
     ?>
     <div style="width: 80%; padding: 10px; margin: 10px;">
-        <h1>Featured Slider-Admin Settings</h1>
+        <h1>Homepage Featured Slider Settings</h1>
         <!-- Start Options Form -->
         <form action="" method="post" id="pwa-settings-form-admin">
            <!-- <div id="pwa-tab-menu"><a id="pwa-general" class="pwa-tab-links active">General</a></div>-->
             <div class="pwa-setting">
+                <div>Below you can enter the clan members name, youtube video id, and description.<br>
+                    The sort order is currently setup where the bottom of this list,is the first video in the slider on the front page.<br>
+                    That way when a new video is added. It is the first video to appear on the slider. This will be updated later to be sortable.
+                    Just the same way the menus are sortable under appearance->menus.<br>
+                    Also will update this to pull the image from here instead of the beginning of the video.
+                    Although it can be set on the youtube side by setting the preview image to a different image than the default</div>
                 <!-- General Setting -->
                 <div class="first pwa-tab" id="div-pwa-general">
                     <h2>Current Featured Videos:</h2>
                     <?php
                     echo "<input type='hidden' name='values_changed' value='Y'><input type='hidden' name='element-max-id' id='element-max-id' value=" . $max_id . ">";
                     for ($x = 1; $x <= $max_id; $x++) {
-                        echo "<br><div class='video_option_container' id='container_".$x."'>";
-                        echo sprintf('<label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User">
+                        echo "<div class='video_option_container' id='container_".$x."'>";
+
+                        echo sprintf('<p>Video #: <span class="video_number">%s</span> | <label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User">
+', $x, $x,$x);
+                        echo sprintf('<label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID">
 ', $x, $x);
-                        echo sprintf('<label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID"><a class="remove_button" id="remove_button_'.$x.'">Remove</a><br></div>
+                        echo sprintf('<label>Description:</label><input style="width:350px;" type="text" id="synfeat_desc_%s" name="synfeat_desc_%s" value="' . esc_attr($options[$x][2]) . '" placeholder="Description">
+                        <a class="button button-primary remove_button" id="remove_button_'.$x.'">Remove</a><br></p></div>
 ', $x, $x);
                     }
                     ?>
                 </div>
-              <br><br>  <input type="button" id="add-new-video" value="Add new Video"/>
+              <br><br>  <input class="button button-primary" type="button" id="add-new-video" value="Add new Video"/>
             </div>
             <span
                 class="submit-btn"><?php echo get_submit_button('Save Settings', 'button-primary', 'submit', '', ''); ?></span>
