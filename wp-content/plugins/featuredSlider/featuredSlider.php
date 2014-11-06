@@ -67,8 +67,7 @@ function init_featured_admin_option_page()
                     <label>User:</label><input type="text" id="synfeat_user_%s" name="synfeat_user_%s" value="' . esc_attr($options[$x][0]) . '" placeholder="User">
                     <label>Video ID:</label><input type="text" id="synfeat_vidID_%s" name="synfeat_vidID_%s" value="' . esc_attr($options[$x][1]) . '" placeholder="Video ID">
                     <label>Description:</label><input style="width:350px;" type="text" id="synfeat_desc_%s" name="synfeat_desc_%s" value="' . esc_attr($options[$x][2]) . '" placeholder="Description">
-                    <a class="button button-primary remove_button" id="remove_button_' . $x . '">Remove</a></div>
-', $x,$video_count, $x, $x, $x, $x, $x, $x);
+                    <a class="button button-primary remove_button" id="remove_button_%s">Remove</a></div>',$x,$video_count, $x, $x, $x, $x, $x, $x,$x);
                     $video_count++;
                 }
                 ?>

@@ -11,7 +11,7 @@ jQuery(document).ready(function () {
             "<label>Description:</label><input style='width:350px;' type='text' id='synfeat_desc_" + newVal + "' name='synfeat_desc_" + newVal + "' value='' placeholder='Description'>" +
             "<a class='button button-primary remove_button' id='remove_button_" + newVal + "'>Remove</a></div>"
         );
-        var total = jQuery('#form_input_fields').children().length
+        var total = jQuery('#form_input_fields').children().length;
         jQuery('#element-max-id').attr('value', total);
         fixNumbers();
     });

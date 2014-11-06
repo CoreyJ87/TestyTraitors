@@ -21,7 +21,7 @@ function createSlider()
     ?>
     <div id="main_slider_container">
         <div id="slider1_container">
-            <div id="loading"><img src="/dev/img/ajax-loader.gif"></div>
+            <div id="loading"><img src="/img/ajax-loader.gif"></div>
             <div u="slides" id="slides_container">
                 <?php
                 $option = get_option('synfeat_featured');

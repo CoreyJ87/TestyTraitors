@@ -32,7 +32,7 @@
     <script type="text/javascript" src="../js/jssor.js"></script>
     <script type="text/javascript" src="../js/jssor.slider.js"></script>
     <script type="text/javascript" src="../js/jssor.player.ytiframe.min.js"></script>
-    <script type="text/javascript" src="/dev/js/slider_custom.js"></script>
+    <script type="text/javascript" src="/js/slider_custom.js"></script>
 </head>
 
 <body class="<?php mysite_body_class(); ?>">
