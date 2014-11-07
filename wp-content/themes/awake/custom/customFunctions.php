@@ -27,7 +27,7 @@ function createSlider()
                 $option = get_option('synfeat_featured');
                 foreach ($option as $single => $value) {
                     echo sprintf('<div>
-                        <div u="player" style="width: 640px; height: 360px;" class="single_player">
+                        <div class="video_iframe" u="player" style="width: 640px; height: 360px;" class="single_player">
                             <iframe pHandler="ytiframe" pHideControls="0" width="640" height="360" style="z-index: 0;"
                                     url="http://www.youtube.com/embed/%s?enablejsapi=1&version=3&playerapiid=ytplayer&fs=1&wmode=transparent"
                                     frameborder="0" scrolling="no"></iframe>

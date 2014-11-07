@@ -3,10 +3,10 @@
  */
 jQuery(document).ready(function () {
     jQuery("#add-new-video").click(function () {
-        var newVal = 1
+        var newVal = 1;
         jQuery('#form_input_fields').prepend(
-            "<div class='video_option_container' id='container_"+newVal+"'>" +
-            "Video #: <span class='video_number'>"+newVal+"</span> | <label>User:</label><input type='text' id='synfeat_user_" + newVal + "' name='synfeat_user_" + newVal + "' value='' placeholder='User'>" +
+            "<div class='video_option_container' id='container_" + newVal + "'>" +
+            "Video #: <span class='video_number'>" + newVal + "</span> | <label>User:</label><input type='text' id='synfeat_user_" + newVal + "' name='synfeat_user_" + newVal + "' value='' placeholder='User'>" +
             "<label>Video ID:</label><input type='text' id='synfeat_vidID_" + newVal + "' name='synfeat_vidID_" + newVal + "' value='' placeholder='Video ID'>" +
             "<label>Description:</label><input style='width:350px;' type='text' id='synfeat_desc_" + newVal + "' name='synfeat_desc_" + newVal + "' value='' placeholder='Description'>" +
             "<a class='button button-primary remove_button' id='remove_button_" + newVal + "'>Remove</a></div>"
@@ -16,20 +16,29 @@ jQuery(document).ready(function () {
         fixNumbers();
     });
 
-    jQuery('.remove_button').live('click',function () {
+    jQuery('.remove_button').on('click', function () {
         var count = eval(jQuery("#element-max-id").attr('value'));
         var newVal = count - 1;
-        jQuery('#element-max-id').attr('value',newVal);
+        jQuery('#element-max-id').attr('value', newVal);
         jQuery(this).parents('.video_option_container').remove();
         fixNumbers();
     });
 
     jQuery('#form_input_fields').sortable({
-        stop: function( event, ui ) {
-        fixNumbers();
+        stop: function (event, ui) {
+            fixNumbers();
         }
     });
 
+
+    jQuery('#submit').click(function(e){
+        e.preventDefault();
+        jQuery('#pwa-settings-form-admin').ajaxSubmit();
+        jQuery('#success_tooltip').show(1000);
+        setTimeout(function(){
+            jQuery('#success_tooltip').hide(1000);
+        },4000);
+    });
 });
 
 
