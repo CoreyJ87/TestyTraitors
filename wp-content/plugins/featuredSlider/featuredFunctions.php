@@ -6,7 +6,7 @@
  * Time: 11:05 AM
  * TODO: Sanitize all post parameters
  */
-require_once('/home/ttraiters/public_html/dev/wp-blog-header.php');
+require_once('/home/ttraiters/public_html/wp-blog-header.php');
 
 //Check to see if they can edit theme options
 if (!current_user_can('edit_theme_options')) {
