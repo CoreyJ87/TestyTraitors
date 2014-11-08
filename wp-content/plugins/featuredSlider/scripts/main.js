@@ -2,6 +2,7 @@
  * Created by cjones on 10/30/2014.
  */
 jQuery(document).ready(function () {
+
     jQuery("#add-new-video").click(function () {
         var newVal = 1;
         jQuery('#form_input_fields').prepend(
@@ -16,45 +17,43 @@ jQuery(document).ready(function () {
         fixNumbers();
     });
 
-    jQuery('.remove_button').on('click', function () {
-        var count = eval(jQuery("#element-max-id").attr('value'));
-        var newVal = count - 1;
-        jQuery('#element-max-id').attr('value', newVal);
-        jQuery(this).parents('.video_option_container').remove();
-        fixNumbers();
-    });
-
     jQuery('#form_input_fields').sortable({
-        stop: function (event, ui) {
+        stop: function () {
             fixNumbers();
         }
     });
 
-
-    jQuery('#submit').click(function(e){
+    jQuery('#submit').click(function (e) {
         e.preventDefault();
         jQuery('#pwa-settings-form-admin').ajaxSubmit();
         jQuery('#success_tooltip').show(1000);
-        setTimeout(function(){
+        setTimeout(function () {
             jQuery('#success_tooltip').hide(1000);
-        },4000);
+        }, 4000);
     });
 });
 
+jQuery(document).on("click", ".remove_button", function (e) {
+    var count = eval(jQuery("#element-max-id").attr('value'));
+    var newVal = count - 1;
+    jQuery('#element-max-id').attr('value', newVal);
+    jQuery(this).parents('.video_option_container').remove();
+    fixNumbers();
+});
 
-function fixNumbers(){
-    var count=1;
-    jQuery('#form_input_fields').children('div').each(function(){
+function fixNumbers() {
+    var count = 1;
+    jQuery('#form_input_fields').children('div').each(function () {
         jQuery(this).children('span').text(count);
-        jQuery(this).attr('id','container_'+count);
-        jQuery(this).children('input[placeholder="User"]').attr('id','synfeat_user_'+count)
-            .attr('name','synfeat_user_'+count);
-        jQuery(this).children('input[placeholder="Video ID"]').attr('id','synfeat_vidID_'+count)
-            .attr('name','synfeat_vidID_'+count);
-        jQuery(this).children('input[placeholder="Description"]').attr('id','synfeat_desc_'+count)
-            .attr('name','synfeat_desc_'+count);
+        jQuery(this).attr('id', 'container_' + count);
+        jQuery(this).children('input[placeholder="User"]').attr('id', 'synfeat_user_' + count)
+            .attr('name', 'synfeat_user_' + count);
+        jQuery(this).children('input[placeholder="Video ID"]').attr('id', 'synfeat_vidID_' + count)
+            .attr('name', 'synfeat_vidID_' + count);
+        jQuery(this).children('input[placeholder="Description"]').attr('id', 'synfeat_desc_' + count)
+            .attr('name', 'synfeat_desc_' + count);
 
-        jQuery(this).children('a').attr('id','remove_button_'+count);
+        jQuery(this).children('a').attr('id', 'remove_button_' + count);
         count++;
     });
 }
