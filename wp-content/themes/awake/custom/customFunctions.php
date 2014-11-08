@@ -30,7 +30,7 @@ function createSlider()
                         <div class="video_iframe" u="player" style="width: 640px; height: 360px;" class="single_player">
                             <iframe pHandler="ytiframe" pHideControls="0" width="640" height="360" style="z-index: 0;"
                                     url="http://www.youtube.com/embed/%s?enablejsapi=1&version=3&playerapiid=ytplayer&fs=1&wmode=transparent"
-                                    frameborder="0" scrolling="no"></iframe>
+                                    frameborder="0" scrolling="no" allowfullscreen></iframe>
                         </div>
                         <div u="thumb">
                             <img class="i" src="//i.ytimg.com/vi/%s/mqdefault.jpg" class="user_content preview_image">"/>

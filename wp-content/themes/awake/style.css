@@ -2372,3 +2372,16 @@ button.fancy_button, input.tooltip_search_field, input.tooltip_search_field:focu
     margin-top: 15px;
     opacity: .05;
 }
+
+.c,.t {
+    text-align: center;
+}
+
+.admin_edit_button {
+    text-align: right;
+    position: relative;
+    top: 20px;
+}
+.admin_edit_button a{
+    color: #FFF;
+}

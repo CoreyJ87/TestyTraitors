@@ -37,6 +37,9 @@ $i=1;
                  ?>
                 <div class="post_content_container"><?php mysite_post_content( array( 'blog_layout' => $layout['blog_layout'], 'post_content' => $post_content ) ); ?>
                 </div>
+                <?php if ( current_user_can('edit_posts') ) {
+                    echo "<div class='admin_edit_button'><a href='wp-admin/post.php?post=".get_the_id()."&action=edit' target='_blank'>Edit</a></div>";
+                } ?>
 			</div>
 			
 			
