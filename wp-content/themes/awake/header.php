@@ -33,6 +33,7 @@
     <script type="text/javascript" src="../js/jssor.slider.js"></script>
     <script type="text/javascript" src="../js/jssor.player.ytiframe.min.js"></script>
     <script type="text/javascript" src="/js/slider_custom.js"></script>
+    <script type="text/javascript" src="/wp-content/themes/awake/lib/scripts/warManager.js"></script>
 </head>
 
 <body class="<?php mysite_body_class(); ?>">
